@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Age Farming Projects (Pty) Ltd | Carolina, Mpumalanga</title>
+    <meta name="description" content="The Future of Food, Grown with Care. New Age Farming Projects (Pty) Ltd. Based in Carolina, Mpumalanga.">
+    
+    <style>
+        /* =========================================
+           THEME VARIABLES & GLOBAL STYLES
+           ========================================= */
+        :root {
+            --primary-green: #004d1a; /* Deep green from logo border */
+            --accent-green: #8bc34a;  /* Lime green from logo leaves */
+            --accent-red: #c62828;    /* Deep red for community highlights */
+            --text-dark: #222222;
+            --text-light: #ffffff;
+            --bg-light: #f4f9f4; /* Very soft green-white */
+            --font-main: Tahoma, Verdana, Segoe UI, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            line-height: 1.7;
+            background-color: var(--bg-light);
+            font-size: 18px; /* Larger base font for easy reading */
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-green);
+            color: var(--primary-green);
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-green);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-green);
+            color: var(--text-light);
+            border-color: var(--primary-green);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-light);
+            color: var(--primary-green);
+            border-color: var(--text-light);
+        }
+
+        /* =========================================
+           HEADER & NAVIGATION
+           ========================================= */
+        header {
+            background-color: var(--text-light);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .logo img {
+            height: 90px;
+            width: auto;
+            display: block;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            font-weight: bold;
+            color: var(--primary-green);
+            font-size: 1.1rem;
+            padding: 10px 0;
+            border-bottom: 3px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            border-bottom: 3px solid var(--accent-green);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 35px;
+            color: var(--primary-green);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* =========================================
+           HERO SLIDER SECTION
+           ========================================= */
+        .hero {
+            position: relative;
+            height: 85vh;
+            min-height: 600px;
+            overflow: hidden;
+            background-color: var(--primary-green);
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 77, 26, 0.65);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--text-light);
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            color: var(--text-light);
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 35px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+        }
+
+        /* =========================================
+           ABOUT US SECTION
+           ========================================= */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            border-bottom: 4px solid var(--accent-green);
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .about-text p {
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 10px 10px 0 var(--accent-green);
+        }
+
+        /* =========================================
+           COMMUNITY IMPACT (Red Accent)
+           ========================================= */
+        .community-impact {
+            background-color: #fff5f5; /* Very light red tint */
+            border-top: 5px solid var(--accent-red);
+            padding: 60px 0;
+        }
+
+        .community-impact h2 {
+            color: var(--accent-red);
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .community-impact > .container > p {
+            text-align: center;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .impact-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            border-bottom: 5px solid var(--accent-red);
+        }
+
+        .impact-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .impact-card h3 {
+            color: var(--primary-green);
+            margin: 20px 0 10px;
+            font-size: 1.5rem;
+        }
+
+        .impact-card p {
+            padding: 0 20px 20px;
+            color: #555;
+        }
+
+        /* =========================================
+           PRODUCTS SECTION
+           ========================================= */
+        .products {
+            background-color: var(--text-light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--bg-light);
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-bottom: 6px solid var(--accent-green);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            padding: 30px 0 10px;
+        }
+
+        .product-card h3 {
+            font-size: 1.8rem;
+            padding-bottom: 20px;
+        }
+
+        /* =========================================
+           CLIENTS SECTION
+           ========================================= */
+        .clients {
+            background-color: var(--bg-light);
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .client-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary-green);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .client-card img {
+            max-width: 180px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .client-card p {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        /* =========================================
+           MIDDLE GALLERY SLIDER
+           ========================================= */
+        .gallery-section {
+            background-color: var(--primary-green);
+            padding: 60px 0;
+            overflow: hidden;
+        }
+
+        .gallery-section h2 {
+            color: var(--text-light);
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .gallery-track {
+            display: flex;
+            gap: 20px;
+            width: max-content;
+            animation: scrollGallery 40s linear infinite;
+        }
+
+        .gallery-track:hover {
+            animation-play-state: paused;
+        }
+
+        .gallery-item {
+            width: 350px;
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 4px solid var(--accent-green);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        @keyframes scrollGallery {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-350px * 10 - 20px * 10)); }
+        }
+
+        /* =========================================
+           CONTACT SECTION
+           ========================================= */
+        .contact {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .contact h2 {
+            color: var(--primary-green);
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-info strong {
+            color: var(--primary-green);
+        }
+
+        .contact-form input, 
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: var(--font-main);
+            font-size: 1.1rem;
+        }
+
+        .contact-form input:focus, 
+        .contact-form textarea:focus {
+            border-color: var(--accent-green);
+            outline: none;
+        }
+
+        .contact-form button {
+            width: 100%;
+            font-size: 1.2rem;
+            background-color: var(--primary-green);
+            color: var(--text-light);
+            border: none;
+            padding: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: var(--accent-green);
+            color: var(--primary-green);
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+        footer {
+            background-color: #002b0e;
+            color: #cccccc;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 1rem;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .app-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--accent-green);
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .app-link:hover {
+            color: white;
+        }
+
+        /* =========================================
+           RESPONSIVE DESIGN
+           ========================================= */
+        @media (max-width: 900px) {
+            .about-grid, .contact-grid, .impact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .nav-container {
+                flex-wrap: wrap;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 0;
+                gap: 15px;
+                background-color: white;
+                border-top: 1px solid #eee;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .gallery-item {
+                width: 250px;
+                height: 180px;
+            }
+            
+            @keyframes scrollGallery {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(calc(-250px * 10 - 20px * 10)); }
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= HEADER & NAVIGATION ================= -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="logo.jpg" alt="New Age Farming Projects Logo">
+            </div>
+            
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#products">Our Produce</a></li>
+                    <li><a href="#clients">Our Clients</a></li>
+                    <li><a href="#contact" class="btn" style="padding: 10px 20px; color: var(--primary-green);">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ================= TOP HERO SLIDER ================= -->
+    <section id="home" class="hero">
+        <div class="slide active" style="background-image: url('farm1.jpg');"></div>
+        <div class="slide" style="background-image: url('farm2.jpg');"></div>
+        <div class="slide" style="background-image: url('farm3.jpg');"></div>
+        <div class="slide" style="background-image: url('farm4.jpg');"></div>
+        
+        <div class="hero-content">
+            <h1>The Future of Food, Grown with Care</h1>
+            <p>New Age Farming Projects (Pty) Ltd. Cultivating high-quality, sustainable vegetables in Carolina, Mpumalanga.</p>
+            <a href="#contact" class="btn">Get in Touch</a>
+            <a href="#about" class="btn btn-outline" style="margin-left: 10px;">Learn More</a>
+        </div>
+    </section>
+
+    <!-- ================= ABOUT US SECTION ================= -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>About Us</h2>
+                    <p><strong>New Age Farming Projects (Pty) Ltd</strong> began operating in 2021 and formally registered in 2024. We operate in Carolina, Mpumalanga, and are managed by Zakhele Mfanukhona Sibande.</p>
+                    <p>We are a small vegetable farming project currently utilizing 0.5 hectares, with an additional 6 hectares recently acquired due to the growing demand for our vegetable produce. Our company manages vegetable crop fields with the commitment, skill, and resources to meet the requirements of our customers.</p>
+                    <p>Our aim is to deliver customer satisfaction through high quality and top-class service at competitive and affordable prices. Our team is experienced, well-trained, and professional, always friendly and courteous. By dedicating ourselves to knowing our customers and their needs, we provide services that build sustainable working relationships based on mutual trust, understanding, honesty, and confidence.</p>
+                    <p>We also aim to train the youth who have no opportunities to continue secondary education in business and management so that they may successfully support their needs.</p>
+                </div>
+                <div class="about-image">
+                    <img src="farm5.jpg" alt="New Age Farming Projects in Carolina">
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- ================= COMMUNITY IMPACT (Red Accent) ================= -->
+    <section id="community" class="community-impact">
+        <div class="container">
+            <h2>🌱 Community Impact</h2>
+            <p>We believe in giving back to our community. We proudly support local schools through our feeding scheme donations, ensuring that no child has to learn on an empty stomach.</p>
+            
+            <div class="impact-grid">
+                <!-- School 1 -->
+                <div class="impact-card">
+                    <!-- Add your Zinikeleni donation picture here. Name it school1.jpg -->
+                    <img src="school1.jpg" alt="Zinikeleni Secondary School Donation">
+                    <h3>Zinikeleni Secondary School</h3>
+                    <p>Feeding Scheme Beneficiary</p>
+                </div>
+                
+                <!-- School 2 -->
+                <div class="impact-card">
+                    <!-- Add your VJ donation picture here. Name it school2.jpg -->
+                    <img src="school2.jpg" alt="VJ Secondary School Donation">
+                    <h3>VJ Secondary School</h3>
+                    <p>Feeding Scheme Beneficiary</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= PRODUCTS SECTION ================= -->
+    <section id="products" class="section-padding products">
+        <div class="container">
+            <h2 class="section-title">Our Fresh Farm Vegetables</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-icon">🥬</div>
+                    <h3>Cabbages</h3>
+                    <p>Fresh, crisp, and locally grown.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🌿</div>
+                    <h3>Spinach</h3>
+                    <p>Nutrient-rich and harvested with care.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🫑</div>
+                    <h3>Green Pepper</h3>
+                    <p>Vibrant, flavorful, and high quality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= RETAIL CLIENTS SECTION ================= -->
+    <section id="clients" class="section-padding clients">
+        <div class="container">
+            <h2 class="section-title">Trusted By Retail Clients</h2>
+            <div class="clients-grid">
+                <!-- Client 1 - Boxer (Logo Only, No Contact Person) -->
+                <div class="client-card">
+                    <img src="boxer.jpg" alt="Boxer Supermarkets Logo">
+                    <p>Fresh Produce Supplier</p>
+                </div>
+                <!-- Client 2 - Galitos (Logo Only, No Contact Person) -->
+                <div class="client-card">
+                    <img src="galitos.jpg" alt="Galitos Logo">
+                    <p>Fresh Produce Supplier</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <p><strong>We also supply:</strong> Tuck Shops & Local Vendors</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= MIDDLE GALLERY SLIDER ================= -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2>Our Farm in Pictures</h2>
+        </div>
+        <div class="gallery-container">
+            <div class="gallery-track">
+                <div class="gallery-item"><img src="farm5.jpg" alt="Farm View 5"></div>
+                <div class="gallery-item"><img src="farm6.jpg" alt="Farm View 6"></div>
+                <div class="gallery-item"><img src="farm7.jpg" alt="Farm View 7"></div>
+                <div class="gallery-item"><img src="farm8.jpg" alt="Farm View 8"></div>
+                <div class="gallery-item"><img src="farm9.jpg" alt="Farm View 9"></div>
+                <div class="gallery-item"><img src="farm10.jpg" alt="Farm View 10"></div>
+                <div class="gallery-item"><img src="farm11.jpg" alt="Farm View 11"></div>
+                <div class="gallery-item"><img src="farm12.jpg" alt="Farm View 12"></div>
+                <div class="gallery-item"><img src="farm13.jpg" alt="Farm View 13"></div>
+                <div class="gallery-item"><img src="farm14.jpg" alt="Farm View 14"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CONTACT SECTION ================= -->
+    <section id="contact" class="section-padding contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <p><strong>📍 Location:</strong> Stand No 440, Crossroad, Carolina, Mpumalanga, 1185</p>
+                    <p><strong>🏢 Company:</strong> New Age Farming Projects (Pty) Ltd</p>
+                    <p><strong>👤 Manager:</strong> Zakhele Mfanukhona Sibande</p>
+                    <p><strong>📧 Email:</strong> <a href="mailto:info@newagefarming.co.za" style="color: var(--primary-green); text-decoration: underline;">info@newagefarming.co.za</a> <!-- UPDATE THIS --></p>
+                    <p><strong>📞 Phone:</strong> <a href="tel:+27000000000" style="color: var(--primary-green); text-decoration: underline;">+27 XX XXX XXXX</a> <!-- UPDATE THIS --></p>
+                    <p><strong>🕒 Hours:</strong> Mon - Fri: 8:00 AM - 5:00 PM</p>
+                </div>
+                
+                <form class="contact-form" action="#" method="POST">
+                    <input type="text" name="name" placeholder="Your Full Name" required>
+                    <input type="email" name="email" placeholder="Your Email Address" required>
+                    <textarea name="message" rows="5" placeholder="How can we help you? (e.g., I want to order vegetables)" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 New Age Farming Projects (Pty) Ltd. All Rights Reserved.</p>
+            <p>The Future of Food, Grown with Care.</p>
+            <p>Carolina, Mpumalanga, South Africa</p>
+            <a href="farm.html" class="app-link">🌾 Open Farm Management App (Coming Soon)</a>
+        </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Hero Slider Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero .slide');
+        const totalSlides = slides.length;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % totalSlides;
+            slides[currentSlide].classList.add('active');
+        }
+
+        if (totalSlides > 0) {
+            setInterval(nextSlide, 5000);
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+                const navMenu = document.getElementById('nav-menu');
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
